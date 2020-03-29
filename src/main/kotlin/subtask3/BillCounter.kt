@@ -2,9 +2,18 @@ package subtask3
 
 class BillCounter {
 
-    // TODO: Complete the following function
-    // The output could be "Bon Appetit" or the string with number(e.g "10")
     fun calculateFairlySplit(bill: IntArray, k: Int, b: Int): String {
-        throw NotImplementedError("Not implemented")
+        var halfPriceWithoutAllergic = 0
+        for (i in bill.withIndex()){
+            if(k != i.index){
+                halfPriceWithoutAllergic += i.value;
+            }
+        }
+        halfPriceWithoutAllergic /= 2
+        return if (halfPriceWithoutAllergic == b){
+            "Bon Appetit"
+        } else {
+            (b - halfPriceWithoutAllergic).toString()
+        }
     }
 }
